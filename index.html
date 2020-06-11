@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    function cout() {
+        var wrd = document.getElementById('wordplace');
+        var noOfChars = 500;
+        var noOfWords = 100;
+        var k = wrd.value;
+        var le = k.length;
+        k = k.match(/\w+/g);
+        var n = k.length;
+
+
+        if (n > noOfWords) {
+            document.getElementById('wre').innerHTML = 'limit exceeded';
+        }
+        else {
+            document.getElementById('wer').innerHTML = n;
+            document.getElementById('wre').innerHTML = noOfWords - n;
+        }
+
+        document.getElementById('cre').innerHTML = noOfChars;
+        if (le > noOfChars) {
+
+            document.getElementById('cre').innerHTML = "limit exceeded";
+        }
+        else {
+            document.getElementById('cer').innerText = le;
+            document.getElementById('cre').innerHTML = (noOfChars - le);
+        }
+    }
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body class="container text-center">
+
+    <textarea name="wordplace" id="wordplace" rows="10" cols="30" onkeyup="cout()"></textarea>
+    <div class="row border  border-dark">
+        <div class="col-sm-12 col-md-6 col-lg-6 bg-warning ">words entered
+            <p id="wer" class="bg-danger "></p>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 bg-info ">remaining words
+            <p id="wre" class="bg-primary"></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6 bg-success ">characters entered
+            <p id="cer" class="bg-info"></p>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 bg-danger">remaining characters
+            <p id="cre" class="bg-success"></p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
